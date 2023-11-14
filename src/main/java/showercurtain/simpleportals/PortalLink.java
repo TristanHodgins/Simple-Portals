@@ -85,7 +85,8 @@ public class PortalLink {
             f = entity.getHeadYaw();
             g = entity.getPitch();
         }
-        if (entity.teleport(world, x, y, z, new HashSet<>(), f, g)) {
+        if (entity.teleport(world, 0, 10000, 0, new HashSet<>(), f, g)) {
+            entity.requestTeleport(x, y, z);
             if (!(entity instanceof LivingEntity livingEntity) || !livingEntity.isFallFlying()) {
                 entity.setVelocity(entity.getVelocity().multiply(1.0, 0.0, 1.0));
                 entity.setOnGround(true);
